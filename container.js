@@ -16,19 +16,11 @@ class Container {
 
     // get a bound item in the container
     get(name) {
-        if (this.container[name] == undefined) {
-            throw (`Container could not resolve ${name}`);
-            return;
-        }
         return this.container[name];
     }
 
     remove(name) {
-      if (this.container[name] == undefined) {
-          throw (`Container could not resolve ${name}`);
-          return;
-      }
-      delete this.container[name];
+        delete this.container[name];
     }
 }
 
