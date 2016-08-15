@@ -1,7 +1,10 @@
+var Signal = require('./signal.js');
+var Container = require('./container.js');
+
 module.exports.Container = function() {
-  return new require('./container.js');
+  return  new Container();
 }
 
 module.exports.Signal = function () {
-  return new require('./signal.js');
+  return new Signal();
 }

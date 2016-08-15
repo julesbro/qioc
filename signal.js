@@ -38,4 +38,4 @@ class Signal {
     }
 }
 
-module.exports = new Signal;
+module.exports = Signal;

@@ -32,4 +32,4 @@ class Container {
     }
 }
 
-module.exports = new Container;
+module.exports = Container;

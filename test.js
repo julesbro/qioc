@@ -30,6 +30,13 @@ describe('Container', function(){
     expect(Object.keys(Container.container).length).to.equal(0);
   });
 
+  it('Container() should return unique containers', function() {
+    var Container = QIOC.Container();
+    var Container2 = QIOC.Container();
+    Container.bind('this', 'that');
+    expect(Object.keys(Container2.container).length).to.equal(0);
+  });
+
 });
 
 describe('Signal', function(){
