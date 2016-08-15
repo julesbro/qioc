@@ -1,0 +1,17 @@
+{
+  "name": "qioc",
+  "version": "0.0.1",
+  "description": "Quick IOC",
+  "main": "index.js",
+  "scripts": {
+    "test": "test.js"
+  },
+  "author": "Jules Brovont",
+  "license": "ISC",
+  "dependencies": {
+    "guid": "0.0.12"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0"
+  }
+}
