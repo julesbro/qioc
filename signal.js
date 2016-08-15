@@ -12,21 +12,18 @@ class Signal {
 
     // add a subscriber to a signal
     subscribe(sub, handler) {
-        if (sub.guid == undefined) {
-            sub.guid = Guid.create();
-        }
-        this.subscribers[sub.guid.value] = {
+        this.subscribers[this.GetOrCreateKey(sub, handler)] = {
             handler: handler.bind(sub),
             subref: sub
         };
     }
 
     // remove a subscriber from the signal
-    unsubscribe(sub) {
+    unsubscribe(sub, handler) {
         if (sub.guid == undefined) {
             throw (`Could not unsubscribe ${sub}`);
         }
-        delete this.subscribers[sub.guid.value];
+        delete this.subscribers[this.GetKey(sub, handler)];
     }
 
     // fire a signal with an arbitrary number of arguments
@@ -35,6 +32,17 @@ class Signal {
           var subscriber = this.subscribers[sub];
             subscriber.handler.apply(subscriber.subref, args);
         }
+    }
+
+    GetOrCreateKey(sub, handler) {
+      if (sub.guid == undefined) {
+          sub.guid = Guid.create();
+      }
+      return this.GetKey(sub, handler);
+    }
+
+    GetKey(sub, handler) {
+      return sub.guid.value+handler.name;
     }
 }
 
